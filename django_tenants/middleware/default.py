@@ -22,7 +22,7 @@ class DefaultTenantMiddleware(SuspiciousTenantMiddleware):
         try:
             return super().get_tenant(domain_model, hostname)
         except domain_model.DoesNotExist:
-            logger.error(f"DoesNotExist domain_model: {domain_model} | hostname: {hostname}")
+            # logger.error(f"DoesNotExist domain_model: {domain_model} | hostname: {hostname}")
             schema_name = self.DEFAULT_SCHEMA_NAME
             if not schema_name:
                 schema_name = get_public_schema_name()
